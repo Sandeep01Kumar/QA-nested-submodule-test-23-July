@@ -21,6 +21,12 @@ const express = require('express');
  */
 const app = express();
 
+// Disable Express's default `X-Powered-By: Express` response header so the underlying
+// framework is not disclosed to clients on any response (successful routes or 404s).
+// This is defense-in-depth against framework fingerprinting (CWE-200) and is a built-in
+// Express application setting — it introduces no middleware, route, or architectural layer.
+app.disable('x-powered-by');
+
 /**
  * The TCP port the HTTP server binds to. Resolved from the PORT environment variable
  * when present, otherwise defaulting to the conventional local port 3000 so that
@@ -35,7 +41,9 @@ const PORT = process.env.PORT || 3000;
  * @param {express.Response} res - The HTTP response used to send the reply.
  * @returns {void} Sends the plain-text body "Hello World".
  */
-app.get('/', (req, res) => res.send('Hello World'));
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
 
 /**
  * Good-evening endpoint.
@@ -43,7 +51,9 @@ app.get('/', (req, res) => res.send('Hello World'));
  * @param {express.Response} res - The HTTP response used to send the reply.
  * @returns {void} Sends the plain-text body "Good evening".
  */
-app.get('/good-evening', (req, res) => res.send('Good evening'));
+app.get('/good-evening', (req, res) => {
+  res.send('Good evening');
+});
 
 /**
  * Start the HTTP server, binding to the configured port (PORT env var or 3000).
