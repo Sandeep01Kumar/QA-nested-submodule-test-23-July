@@ -1,5 +1,10 @@
 # Dependencies
+# Installed locally by `npm install`; regenerated on demand and never committed.
 node_modules/
 
-# npm debug logs
+# Debug logs (npm / yarn / pnpm)
+# Diagnostic logs emitted by package managers when a command fails.
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
