@@ -51,7 +51,7 @@ curl http://localhost:3000/              # -> Hello World
 curl http://localhost:3000/good-evening  # -> Good evening
 ```
 
-Any other path returns Express's default `404 Not Found` response.
+Any other path — including case variants (e.g. `/Good-evening`) and trailing-slash forms (e.g. `/good-evening/`) — returns a `404 Not Found` response with a fixed `Not Found` body. Routing is case-sensitive and strict, so only the exact paths `/` and `/good-evening` are served.
 
 ## Repository structure
 
