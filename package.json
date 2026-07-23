@@ -1,0 +1,15 @@
+{
+  "name": "qa-nested-submodule-test-23-july",
+  "version": "1.0.0",
+  "description": "A minimal Express.js server exposing GET / (Hello World) and GET /good-evening (Good evening).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
